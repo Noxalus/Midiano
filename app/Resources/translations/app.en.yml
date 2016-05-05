@@ -1,0 +1,9 @@
+login:
+    login_with_facebook: Log in with Facebook
+    login_with_google: Log in with Google
+    login_with_twitter: Log in with Twitter
+
+register:
+    register_with_facebook: Register in with Facebook
+    register_with_google: Register in with Google
+    register_with_twitter: Register in with Twitter

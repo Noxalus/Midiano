@@ -1,0 +1,14 @@
+<div>
+    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" alt="{{ 'register.register_with_facebook'|trans({}, 'app') }}" class="btn btn-block btn-social btn-facebook">
+      <i class="fa fa-facebook"></i>
+      <span class="center">{{ 'register.register_with_facebook'|trans({}, 'app') }}</span>
+    </a>
+    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" alt="{{ 'register.register_with_google'|trans({}, 'app') }}" class="btn btn-block btn-social btn-google">
+      <i class="fa fa-google"></i>
+      <span class="center">{{ 'register.register_with_google'|trans({}, 'app') }}</span>
+    </a>
+    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'twitter' }) }}" alt="{{ 'register.register_with_twitter'|trans({}, 'app') }}" class="btn btn-block btn-social btn-twitter">
+      <i class="fa fa-twitter"></i>
+      <span class="center">{{ 'register.register_with_twitter'|trans({}, 'app') }}</span>
+    </a>
+</div>

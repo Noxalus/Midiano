@@ -41,3 +41,6 @@
 
 *.php~
 /var/sessions/
+
+# App specific
+web/upload/

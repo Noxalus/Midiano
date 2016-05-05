@@ -1,0 +1,48 @@
+<div class="masthead clearfix sm-header">
+    <div class="inner">
+        <div class="sm-header-logo">
+            <a href="{{ url('homepage') }}">
+                <img src="{{ asset('images/logo.png') }}" class="header-logo" alt="Piamidi" />
+                <h3 class="masthead-brand">Piamidi</h3>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav masthead-nav">
+{#                 <li><a href="#">Request</a></li>
+                <li><a href="#">Submit</a></li> #}
+                <li><a href="#">Search</a></li> 
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {# {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | #}
+                    {# <a href="{{ path('fos_user_security_logout') }}"> #}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ gravatar(app.user.email) }}" class="gravatar-round" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-sw dropdown-user-menu">
+                            <div class=" dropdown-header header-nav-current-user css-truncate">
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            </div>
+                            <li role="separator" class="divider"></li>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <li><a href="{{ path('fos_user_security_logout') }}">Admin</a></li>
+                            {% endif %}
+                            <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                            <li><a href="#">Favorites</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#loginModal">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+<hr />

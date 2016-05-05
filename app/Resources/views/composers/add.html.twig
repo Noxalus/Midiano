@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}Add a new composer{% endblock %}
+
+{% block content %}
+    <h1>Add a new composer</h1>
+    {{ form_start(form, { 'attr': {'class': 'pm-form'} }) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+{% endblock %}

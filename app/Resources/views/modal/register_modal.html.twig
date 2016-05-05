@@ -1,0 +1,34 @@
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="registerModalLabel">{{ 'layout.register'|trans({}, 'FOSUserBundle')|upper }}</h4>
+            </div>
+            <div class="modal-body">
+                <p class="error"></p>
+                <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.getToken('authenticate') }}" />
+                <div class="form-group">
+                    <label for="email">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    <input type="text" class="form-control" id="username" name="_username" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label><br />
+                    <input type="password" id="password" name="_password" required="required" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="remember_me">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</button>
+                </div>
+                <div class="modal-footer">
+                    {% include 'blocks/social_register_buttons.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

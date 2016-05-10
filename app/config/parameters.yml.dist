@@ -17,3 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    oauth.facebook.id: '0000000000000000'
+    oauth.facebook.secret: ffffffffffffffffffffffffffffffff
+    oauth.google.id: 000000000000-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.apps.googleusercontent.com
+    oauth.google.secret: AAAAAAAAAAAAAAAAAAAAAAAA
+    oauth.twitter.id: AAAAAAAAAAAAAAAAAAAAAAAAA
+    oauth.twitter.secret: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

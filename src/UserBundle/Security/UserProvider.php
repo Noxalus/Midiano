@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Security;
+namespace UserBundle\Security;
 
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
@@ -45,14 +45,14 @@ class UserProvider extends FOSUBUserProvider
         var_dump($response->getEmail());
         var_dump($response->getNickname());
 
-        var_dump($response);
+        // var_dump($response);
         exit;
 
         $username = $response->getUsername();
         $email = $response->getEmail();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
 
-        //when the user is registrating
+        // When the user is registrating
         if (null === $user) 
         {
             $service = $response->getResourceOwner()->getName();
@@ -65,8 +65,8 @@ class UserProvider extends FOSUBUserProvider
             $user->$setter_id($username);
             $user->$setter_token($response->getAccessToken());
 
-            //I have set all requested data with the user's username
-            //modify here with relevant data
+            // I have set all requested data with the user's username
+            // modify here with relevant data
             $user->setUsername($username);
             $user->setEmail($email);
             $user->setPassword($username);
@@ -75,11 +75,11 @@ class UserProvider extends FOSUBUserProvider
             return $user;
         }
 
-        //if user exists - go with the HWIOAuth way
+        // If user exists => go with the HWIOAuth way
         $user = parent::loadUserByOAuthUserResponse($response);
         $serviceName = $response->getResourceOwner()->getName();
         $setter = 'set' . ucfirst($serviceName) . 'AccessToken';
-        //update access token
+        // Update access token
         $user->$setter($response->getAccessToken());
 
         return $user;

@@ -27,7 +27,7 @@ class MusicArrangement
     protected $music;
 
     /**
-     *  @ORM\ManyToOne(targetEntity="User")
+     *  @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      */
     protected $uploader;
 

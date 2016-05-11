@@ -4,11 +4,15 @@ parameters:
 
 
 services:
+    app.form.registration:
+        class: UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
     authentication_handler:
-        class:        AppBundle\Handler\AuthenticationHandler
+        class:        UserBundle\Handler\AuthenticationHandler
         arguments:    ["@router", "@fos_user.user_manager", "@service_container", "@translator"]
     my_user_provider:
-        class: AppBundle\Security\UserProvider
+        class: UserBundle\Security\UserProvider
         #this is the place where the properties are passed to the UserProvider - see config.yml
         arguments: ["@fos_user.user_manager",{facebook: facebook_id, google: google_id, twitter: twitter_id}]
 

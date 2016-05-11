@@ -71,7 +71,10 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: UserBundle\Entity\User
+    registration:
+        form:
+            type: UserBundle\Form\Type\RegistrationType
 
 ornicar_gravatar:
   rating: g
@@ -115,7 +118,7 @@ hwi_oauth:
           type:               facebook
           client_id:          %oauth.facebook.id%
           client_secret:      %oauth.facebook.secret%
-          scope:              "email"
+          infos_url:          'https://graph.facebook.com/me?fields=id,name,email'
         google:
           type:               google
           client_id:          %oauth.google.id%
@@ -125,6 +128,8 @@ hwi_oauth:
           type:               twitter
           client_id:          %oauth.twitter.id%
           client_secret:      %oauth.twitter.secret%
+          options:
+            include_email: true
 
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
@@ -144,3 +149,8 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+
+ewz_recaptcha:
+    public_key: %recaptcha.public_key%
+    private_key: %recaptcha.private_key%
+    locale_key:  %kernel.default_locale%

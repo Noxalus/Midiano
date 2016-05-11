@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Handler;
+namespace UserBundle\Handler;
 
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
@@ -42,7 +42,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
         else
         {
             // Create a flash message with the authentication error message
-            //$request->getSession()->getFlashBag()->set('error', $exception->getMessage());
+            $request->getSession()->getFlashBag()->set('error', $exception->getMessage());
             $url = $this->router->generate('fos_user_security_login');
 
             return new RedirectResponse($url);

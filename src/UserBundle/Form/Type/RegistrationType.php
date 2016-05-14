@@ -25,8 +25,7 @@ class RegistrationType extends AbstractType
             'mapped' => false,
             'constraints' => array(
                 new RecaptchaTrue()
-            ),
-            'required'    => true,
+            )
         ));
     }
 

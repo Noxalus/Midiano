@@ -24,7 +24,7 @@
                         </label>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</button>
+                        <a href="{{ path("fos_user_registration_register") }}" class="btn btn-danger" >{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                         <input type="submit" id="_login_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary">
                     </div>
                     <div class="modal-footer">

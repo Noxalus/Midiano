@@ -1,16 +1,22 @@
-<div class="masthead clearfix sm-header">
+<div class="masthead clearfix md-header">
     <div class="inner">
-        <div class="sm-header-logo">
+        <div class="md-header-logo">
             <a href="{{ url('homepage') }}">
                 <img src="{{ asset('images/logo.png') }}" class="header-logo" alt="Midiano" />
-                <h3 class="masthead-brand">Midiano</h3>
+                <h3 class="masthead-brand md-header-brand">Midiano</h3>
             </a>
         </div>
         <nav>
-            <ul class="nav masthead-nav">
+            <ul class="nav masthead-nav md-header-nav">
 {#                 <li><a href="#">Request</a></li>
                 <li><a href="#">Submit</a></li> #}
-                <li><a href="#">Search</a></li> 
+{#                 <li>
+                    <form class="header-search-bar search-submit">
+                        <input type="search" name="q" id="search-query-input" value="" placeholder="Search..." class="extended">
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                </li> #}
+                {# <li><a href="#">Search</a></li> #}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     {# {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | #}
                     {# <a href="{{ path('fos_user_security_logout') }}"> #}
@@ -38,7 +44,7 @@
                     </li>
                 {% else %}
                     <li>
-                        <a href="#" data-toggle="modal" data-target="#loginModal">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <a href="{{ path("fos_user_security_login") }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
                 {% endif %}
             </ul>

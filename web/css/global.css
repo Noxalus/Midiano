@@ -19,9 +19,11 @@
 }
 
 .social-media-sign-in-buttons {
-	width: 75%;
+	width: 50%;
     margin: auto;
     margin-top: 20px;
+    max-width: 500px;
+    min-width: 200px;
 }
 
 .center {
@@ -29,17 +31,29 @@
 	display: block;
 }
 
-.sm-header {
+.md-header {
 	position: relative !important;
 	margin-bottom: 25px;
+	width: 100% !important;
 }
 
-.sm-header-logo {
-
+.md-header-brand {
+    float: left;
 }
 
-.sm-footer {
+.md-header-nav {
+	float: right;
+}
+
+.md-content input:not([type=button]):not([type=submit]) {
+	width: 80%;
+	margin: auto;
+    max-width: 500px;
+}
+
+.md-footer {
 	position: relative !important;
+	width: 100% !important;
 }
 
 @media (min-width: 768px) {
@@ -50,7 +64,6 @@
 
 @media (min-width: 992px) {
 	.sm-wrapper-inner {
-		width: 800px;
 		margin-left: auto;
 		margin-right: auto; 
 	}
@@ -76,4 +89,35 @@
 
 .alert-success {
 	background-color: #065A00;
+}
+
+.md-form-error {
+	color: red;
+}
+
+.md-form-error ul {
+	list-style: none;
+    padding: 0px;
+}
+
+/* Responsive Youtube video integration */
+
+.video-wrapper {
+	width: 60%;
+	margin: auto;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

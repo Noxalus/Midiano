@@ -75,6 +75,7 @@ fos_user:
     registration:
         form:
             type: UserBundle\Form\Type\RegistrationType
+            validation_groups: [AppUserRegistration]
 
 ornicar_gravatar:
   rating: g

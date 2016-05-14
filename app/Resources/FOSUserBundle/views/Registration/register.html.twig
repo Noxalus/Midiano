@@ -4,90 +4,39 @@
 
 {% block title %}Register{% endblock %}
 
+{% trans_default_domain 'FOSUserBundle' %}
+
 {% block content %}
         <h1>{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</h1>
-        <hr />
-{#         <form data-abide class="fos_user_registration_register" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="post">
-            <p class="error"></p>
-            <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.getToken('register') }}" />
-            <div class="form-group">
-                <label for="fos_user_registration_form_username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="text" class="form-control" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required">
-            </div>
-            <div class="form-group">
-                <label for="fos_user_registration_form_email">{{ 'form.email'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="text" class="form-control" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required">
-            </div>
-            <div class="form-group">
-                <label for="fos_user_registration_form_plainPassword_first">{{ 'form.password'|trans({}, 'FOSUserBundle') }}</label><br />
-                <input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="fos_user_registration_form_plainPassword_second">{{ 'form.password_confirmation'|trans({}, 'FOSUserBundle') }}</label><br />
-                <input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" class="form-control">
-            </div>
-            <hr />
-            <div>
-                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary">
-            </div>
-        </form> #}
-
-{#         {{ form_start(form, {'attr': {'class': 'fos_user_registration_register', 'id': 'register-form'} }) }}
-
-        {{ form_widget(form.username, { 'attr': {'class': 'form-control' }}) }}
-        {{ form_widget(form.email, { 'attr': {'class': 'form-control' }}) }}
-        {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control' }}) }}
-        {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' }}) }} #}
-
-{#         {{ form_label(form.username) }}
-        {{ form_errors(form.username) }}        
-        {{ form_widget(form.username) }}
-        {{ form_label(form.email) }}
-        {{ form_errors(form.email) }}       
-        {{ form_widget(form.email) }}
-        {{ form_label(form.plainPassword.first, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_errors(form.plainPassword.first) }}
-        {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
-        {{ form_label(form.plainPassword.second, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
-        {{ form_errors(form.plainPassword.second) }} #}
-
-{#         {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
-        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-
-        {{ form_rest(form) }} #}
-
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }}  method="POST" class="fos_user_registration_register">
-        {{ form_widget(form) }} 
- 
-            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-        </form>
-
+        
         <hr />
 
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-{#         <form action="/register/"  method="POST" class="fos_user_registration_register">
-            <div id="fos_user_registration_form"><div>
-                <label for="fos_user_registration_form_email" class="required">Email</label>
-                <input type="email" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" />
+        <div class="form-group">
+            {{ form_label(form.username) }}
+            <div class="md-form-error">
+                {{ form_errors(form.username) }}
             </div>
-            <div>
-                <label for="fos_user_registration_form_username" class="required">Username</label>
-                <input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="255" pattern=".{2,}" />
-            </div>
-            <div>
-                <label for="fos_user_registration_form_plainPassword_first" class="required">Password</label>
-                <input type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" />
-            </div>
-            <div>
-                <label for="fos_user_registration_form_plainPassword_second" class="required">Repeat password</label>
-                <input type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" />
-            </div>
-            <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="3TQLDCF6Ah04CQn15P_HgyAhIeuvjVxV7zWktmkmyrs" />
-            </div>
-            <div>
-                <input type="submit" value="Register" />
-            </div>
-        </form> #}
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+        </div>
 
-            {% include 'blocks/social_register_buttons.html.twig' %}
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            <div class="md-form-error">
+                {{ form_errors(form.email) }}
+            </div>
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+
+        {{ form_rest(form) }}
+
+        <br />
+        <div class="modal-footer">
+            <br />
+            <input type="submit" class="btn btn-primary" value="{{ 'registration.submit'|trans }}" />
+        </div>
+
+        {{ form_end(form) }}
+
 {% endblock %}

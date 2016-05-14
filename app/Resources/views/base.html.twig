@@ -30,7 +30,7 @@
         <div class="site-wrapper">
             <div class="site-wrapper-inner sm-wrapper-inner">
                 {% include 'default/header.html.twig' %}
-                <div>
+                <div class="md-content">
                     {% for label, flashes in app.session.flashbag.all %}
                         {% for flash in flashes %}
                             <div class="alert alert-{{ label }}">
@@ -46,8 +46,10 @@
         </div>
 
         <!-- Modal -->
+{# 
         {% include 'modal/login_modal.html.twig' %}
         {% include 'modal/register_modal.html.twig' %}
+ #}
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -56,6 +58,7 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
 
+        <!-- For modals -->
         <script>
             $(document).ready(function(){
                 $('#_login_submit').click(function(e){

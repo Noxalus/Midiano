@@ -190,7 +190,7 @@ class MusicsController extends Controller
     {
         $musicGenre = new MusicGenre();
 
-        $form = $this->createForm(new MusicGenreType(), $musicGenre);
+        $form = $this->createForm(MusicGenreType::class, $musicGenre);
         $form->handleRequest($request);
 
         if ($form->isValid()) 

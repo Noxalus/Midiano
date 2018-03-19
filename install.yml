@@ -1,0 +1,14 @@
+---
+- name: Install server
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: "USER | Create {{ user }}"
+      user:
+        name: "{{ user }}"
+        shell: /bin/bash
+    - name: USER | SSH key
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
